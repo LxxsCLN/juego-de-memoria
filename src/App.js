@@ -3,15 +3,23 @@ import { albums } from './data';
 import { Header } from "./components/header.js"
 import React, { useState, useEffect } from 'react';
 
-
 function App() {
 
   const [score, setScore] = useState(0)
   const [topscore, setTopScore] = useState(0)
   const [clicked, setClicked] = useState([])
-  
-  function updateArray(id){    
-    
+  const randomCards = albums;
+
+  function shuffle() {
+    for (let i = randomCards.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [randomCards[i], randomCards[j]] = [randomCards[j], randomCards[i]];
+    }
+  }
+ 
+  shuffle()
+
+  function updateArray(id){        
     if (clicked.includes(id)){
       setClicked([]);
       if (score > topscore){
@@ -23,6 +31,7 @@ function App() {
     const temp = [id];
     setClicked(clicked.concat(temp))
     setScore(score+1)
+    
   }
 
   return (

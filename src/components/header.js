@@ -5,8 +5,8 @@ export function Header(props){
     return (
         <header className="Header">
             <h1>Music Memory</h1>
-            <p>Puntuación más alta: {props.topscore}</p>
-            <p>Puntuación: {props.score}</p>
+            <h2>Puntuación más alta: {props.topscore}</h2>
+            <h2>Puntuación: {props.score}</h2>
             
         </header>
     )
