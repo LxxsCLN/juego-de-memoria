@@ -1,16 +1,48 @@
 import './App.css';
 import { albums } from './data';
+import { Header } from "./components/header.js"
+import React, { useState, useEffect } from 'react';
 
-const image = albums[0]
 
 function App() {
-  console.log(image)
+
+  const [score, setScore] = useState(0)
+  const [topscore, setTopScore] = useState(0)
+  const [clicked, setClicked] = useState([])
+  
+  function updateArray(id){    
+    
+    if (clicked.includes(id)){
+      setClicked([]);
+      if (score > topscore){
+        setTopScore(score)
+      }
+      setScore(0)      
+      return;
+    }
+    const temp = [id];
+    setClicked(clicked.concat(temp))
+    setScore(score+1)
+  }
+
   return (
     <div className="App">
-      <p>hi</p>
-      {albums.map((item, index) => {
-        return <img alt='' src={`${process.env.PUBLIC_URL}`+item.img} key={item.id}></img>
-      })}      
+      <Header score={score} topscore={topscore}/>
+      <div className='gamediv'>
+      {
+        albums.map((item) => {
+        return (<div className='carddiv' key={item.id} onClick={()=> {
+          updateArray(item.id);
+        }
+        }>          
+            <img alt='' src={process.env.PUBLIC_URL + item.img} ></img>
+            <p className='text'>{process.env.PUBLIC_URL + item.text}</p>
+
+            </div>  
+        )})
+      } 
+      </div>   
+      <footer>luiseseberre2023</footer>   
     </div>
   );
 }

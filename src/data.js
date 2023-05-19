@@ -125,7 +125,7 @@ export const albums = [
         "/assets/drake-21-savage-her-loss.jpg",
     text: "Drake & 21 Savage - Her Loss",
     },
-    {
+    /* {
     id: 22,
     img:
         "/assets/king-von-grandson-vol-1.jpg",
@@ -148,5 +148,5 @@ export const albums = [
     img:
         "/assets/king-von-what-it-means-to-be-king.jpg",
     text: "King Von - What It Means To Be King",
-    }
+    } */
 ]
