@@ -1,7 +1,7 @@
 import './App.css';
 import { albums } from './data';
 import { Header } from "./components/header.js"
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 function App() {
 
@@ -45,7 +45,7 @@ function App() {
         }
         }>          
             <img alt='' src={process.env.PUBLIC_URL + item.img} ></img>
-            <p className='text'>{process.env.PUBLIC_URL + item.text}</p>
+            <p className='text'>{item.text}</p>
 
             </div>  
         )})
